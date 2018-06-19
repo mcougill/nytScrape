@@ -74,15 +74,15 @@ class Home extends Component {
     };
 
     createNewArticle = (title, url) => {
-        
+
         API.saveArticle({
-          title: title,
-          url: url,
-          date: Date.now()
+            title: title,
+            url: url,
+            date: Date.now()
         })
-          .then(res => this.loadArticles())
-          .catch(err => console.log(err));
-      }
+            .then(res => this.loadArticles())
+            .catch(err => console.log(err));
+    }
 
     handleSearchNYT = event => {
         event.preventDefault();
@@ -93,6 +93,9 @@ class Home extends Component {
         }
     };
 
+
+
+    //render
     render() {
         return (
             <Container fluid>
@@ -100,24 +103,24 @@ class Home extends Component {
                     <Col size="md-12">
                         <Jumbotron>
                             <h1>Curate NYT articles of interest to you</h1>
-                           
+
                         </Jumbotron>
                         <form>
-                            {/* this part is the: Topic Input */}
+
                             <Input
                                 value={this.state.topic}
                                 onChange={this.handleInputChange}
                                 name="topic"
                                 placeholder="Topic"
                             />
-                            {/* this part is the: From Input */}
+
                             <Input
                                 value={this.state.from}
                                 onChange={this.handleInputChange}
                                 name="from"
                                 placeholder="From Year"
                             />
-                            {/* this part is the: To Input */}
+
                             <Input
                                 value={this.state.to}
                                 onChange={this.handleInputChange}
@@ -134,7 +137,7 @@ class Home extends Component {
                         </form>
                     </Col>
                 </Row>
-                {/* {console.log(this.state.NYTResults)} */}
+
                 {this.state.NYTResults.length ? (
                     <Row>
                         <Col size="md-12 sm-12">
@@ -179,7 +182,7 @@ class Home extends Component {
                                 ))}
                             </List>
                         ) : (
-                                <h3>No Results to Display</h3>
+                                <h3>No Saved Articles</h3>
                             )}
                     </Col>
                 </Row>
